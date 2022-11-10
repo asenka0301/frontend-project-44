@@ -5,8 +5,7 @@ export const generateNum = (max) => Math.floor(Math.random() * max);
 export const gameFlow = (task, QAArray) => {
   console.log('Welcome to the Brain Games!');
   const userName = readlineSync.question('My I have your name? ');
-  console.log(`Hello, ${userName}!`);
-  console.log(task);
+  console.log(`Hello, ${userName}!\n${task}`);
 
   let isFailure = false;
   for (let i = 0; i < QAArray.length && !isFailure; i += 1) {
@@ -22,10 +21,9 @@ export const gameFlow = (task, QAArray) => {
       isFailure = true;
     }
   }
-
+  let finalMessage = `Congratulations, ${userName}!`;
   if (isFailure) {
-    console.log(`Let's try again, ${userName}!`);
-  } else {
-    console.log(`Congratulations, ${userName}!`);
+    finalMessage = `Let's try again, ${userName}!`;
   }
+  console.log(finalMessage);
 };
