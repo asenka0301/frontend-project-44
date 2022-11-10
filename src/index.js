@@ -11,8 +11,10 @@ export const gameFlow = (task, QAArray) => {
   let isFailure = false;
   for (let i = 0; i < QAArray.length && !isFailure; i += 1) {
     const [question, answer] = QAArray[i];
+
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
+
     if (userAnswer === answer) {
       console.log('Corect');
     } else {
