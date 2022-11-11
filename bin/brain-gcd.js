@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import findCommonDivisor from '../src/games/gcd.js';
+import findGcdGame from '../src/games/gcd.js';
 
-findCommonDivisor();
+findGcdGame();
