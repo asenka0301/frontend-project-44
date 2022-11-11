@@ -24,3 +24,10 @@ brain-calc:
 
 brain-gcd: 
 	node bin/brain-gcd
+
+
+brain-prime: 
+	node bin/brain-prime
+
+
+.PHONY: test
