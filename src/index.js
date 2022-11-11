@@ -15,9 +15,9 @@ export const gameFlow = (task, QAArray) => {
     const userAnswer = readlineSync.question('Your answer: ');
 
     if (userAnswer === answer) {
-      console.log('Corect');
+      console.log('Correct!');
     } else {
-      console.log(`${userAnswer} is wrong answer ;(. Corect answer was ${answer}`);
+      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${answer}`);
       isFailure = true;
     }
   }
