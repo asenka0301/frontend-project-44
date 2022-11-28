@@ -17,11 +17,11 @@ const findGcd = (expression) => {
 };
 
 export default () => {
-  const arrayOfQA = [];
+  const questionsAndAnswersArr = [];
   for (let i = 0; i < 3; i += 1) {
     const question = `${generateNum(20)} ${generateNum(20)}`;
     const answer = String(findGcd(question));
-    arrayOfQA.push([question, answer]);
+    questionsAndAnswersArr.push([question, answer]);
   }
-  gameFlow(gameTask, arrayOfQA);
+  gameFlow(gameTask, questionsAndAnswersArr);
 };

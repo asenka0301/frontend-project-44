@@ -14,14 +14,14 @@ const generateProgression = (progressioStart, progressionStep) => {
 };
 
 export default () => {
-  const arrayOfQA = [];
+  const questionsAndAnswersArr = [];
   for (let i = 0; i < 3; i += 1) {
     const progression = generateProgression(20, 7);
     const index = generateNum(progression.length);
     const answer = String(progression[index]);
     progression[index] = '..';
     const question = progression.join(' ');
-    arrayOfQA.push([question, answer]);
+    questionsAndAnswersArr.push([question, answer]);
   }
-  gameFlow(gameTask, arrayOfQA);
+  gameFlow(gameTask, questionsAndAnswersArr);
 };

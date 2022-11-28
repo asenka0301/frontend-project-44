@@ -22,11 +22,11 @@ const generateExpression = (maxLhs, maxRhs) => `${generateNum(maxLhs)} ${generat
 const gameTask = 'What is the result of the expression?';
 
 export default () => {
-  const arrayOfQA = [];
+  const questionsAndAnswersArr = [];
   for (let i = 0; i < 3; i += 1) {
     const question = generateExpression(10, 10);
     const answer = String(getResult(question));
-    arrayOfQA.push([question, answer]);
+    questionsAndAnswersArr.push([question, answer]);
   }
-  gameFlow(gameTask, arrayOfQA);
+  gameFlow(gameTask, questionsAndAnswersArr);
 };
