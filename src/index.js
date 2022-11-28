@@ -23,9 +23,6 @@ export const gameFlow = (task, QAArray) => {
       isFailure = true;
     }
   }
-  let finalMessage = `Congratulations, ${userName}!`;
-  if (isFailure) {
-    finalMessage = `Let's try again, ${userName}!`;
-  }
+  const finalMessage = isFailure ? `Let's try again, ${userName}!` : `Congratulations, ${userName}!`;
   console.log(finalMessage);
 };
