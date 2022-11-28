@@ -1,12 +1,16 @@
-import { gameFlow, generateNum } from '../index.js';
+import { gameFlow, generateNum, GAME_ROUNDS } from '../index.js';
 
 const gameTask = 'What number is missing in the progression?';
+
+const PROGRESSION_LENGTH = 10;
+const PROGRESSION_MAX_RANDON_VALUE = 20;
+const STEP_MAX_RANDON_VALUE = 7;
 
 const generateProgression = (progressioStart, progressionStep) => {
   const numbers = [];
   let start = 1 + generateNum(progressioStart);
   const step = 1 + generateNum(progressionStep);
-  for (let i = 0; i < 10; i += 1) {
+  for (let i = 0; i < PROGRESSION_LENGTH; i += 1) {
     numbers.push(start + step);
     start += step;
   }
@@ -15,8 +19,8 @@ const generateProgression = (progressioStart, progressionStep) => {
 
 export default () => {
   const questionsAndAnswersArr = [];
-  for (let i = 0; i < 3; i += 1) {
-    const progression = generateProgression(20, 7);
+  for (let i = 0; i < GAME_ROUNDS; i += 1) {
+    const progression = generateProgression(PROGRESSION_MAX_RANDON_VALUE, STEP_MAX_RANDON_VALUE);
     const index = generateNum(progression.length);
     const answer = String(progression[index]);
     progression[index] = '..';

@@ -1,4 +1,7 @@
-import { gameFlow, generateNum } from '../index.js';
+import { gameFlow, generateNum, GAME_ROUNDS } from '../index.js';
+
+const LEFT_MAX_RANDOM_VALUE = 10;
+const RIGHT_MAX_RANDOM_VALUE = 10;
 
 const generateOperator = () => {
   const operators = ['+', '-', '*'];
@@ -23,8 +26,8 @@ const gameTask = 'What is the result of the expression?';
 
 export default () => {
   const questionsAndAnswersArr = [];
-  for (let i = 0; i < 3; i += 1) {
-    const question = generateExpression(10, 10);
+  for (let i = 0; i < GAME_ROUNDS; i += 1) {
+    const question = generateExpression(LEFT_MAX_RANDOM_VALUE, RIGHT_MAX_RANDOM_VALUE);
     const answer = String(getResult(question));
     questionsAndAnswersArr.push([question, answer]);
   }

@@ -1,5 +1,7 @@
 import readlineSync from 'readline-sync';
 
+export const GAME_ROUNDS = 3;
+
 export const generateNum = (max) => Math.floor(Math.random() * max);
 
 export const gameFlow = (task, QAArray) => {

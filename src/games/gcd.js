@@ -1,4 +1,7 @@
-import { gameFlow, generateNum } from '../index.js';
+import { gameFlow, generateNum, GAME_ROUNDS } from '../index.js';
+
+const LEFT_MAX_RANDOM_VALUE = 20;
+const RIGHT_MAX_RANDOM_VALUE = 20;
 
 const gameTask = 'Find the greatest common divisor of given numbers';
 
@@ -18,8 +21,8 @@ const findGcd = (expression) => {
 
 export default () => {
   const questionsAndAnswersArr = [];
-  for (let i = 0; i < 3; i += 1) {
-    const question = `${generateNum(20)} ${generateNum(20)}`;
+  for (let i = 0; i < GAME_ROUNDS; i += 1) {
+    const question = `${generateNum(LEFT_MAX_RANDOM_VALUE)} ${generateNum(RIGHT_MAX_RANDOM_VALUE)}`;
     const answer = String(findGcd(question));
     questionsAndAnswersArr.push([question, answer]);
   }
