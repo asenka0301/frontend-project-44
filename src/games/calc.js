@@ -11,11 +11,11 @@ const getResult = (expression) => {
   const arr = expression.split(' ');
   switch (arr[1]) {
     case '+':
-      return +arr[0] + +arr[2];
+      return Number(arr[0]) + Number(arr[2]);
     case '-':
-      return +arr[0] - +arr[2];
+      return Number(arr[0]) - Number(arr[2]);
     case '*':
-      return +arr[0] * +arr[2];
+      return Number(arr[0]) * Number(arr[2]);
     default:
       return 'Error: incorrect operation';
   }
