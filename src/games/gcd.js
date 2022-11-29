@@ -21,10 +21,10 @@ const findGcd = (a, b) => {
 export default () => {
   const questionsAndAnswersArr = [];
   for (let i = 0; i < GAME_ROUNDS; i += 1) {
-    const leftNumber = generateNum(LEFT_MAX_RANDOM_VALUE);
-    const rightNumber = generateNum(RIGHT_MAX_RANDOM_VALUE);
-    const question = `${leftNumber} ${rightNumber}`;
-    const answer = `${findGcd(leftNumber, rightNumber)}`;
+    const number1 = generateNum(LEFT_MAX_RANDOM_VALUE);
+    const number2 = generateNum(RIGHT_MAX_RANDOM_VALUE);
+    const question = `${number1} ${number2}`;
+    const answer = `${findGcd(number1, number2)}`;
     questionsAndAnswersArr.push([question, answer]);
   }
   gameFlow(gameTask, questionsAndAnswersArr);
