@@ -5,25 +5,26 @@ const RIGHT_MAX_RANDOM_VALUE = 20;
 
 const gameTask = 'Find the greatest common divisor of given numbers';
 
-const findGcd = (expression) => {
-  const numbers = expression.split(' ');
-  let a = Number(numbers[0]);
-  let b = Number(numbers[1]);
-  while (a !== b) {
-    if (a > b) {
-      a -= b;
+const findGcd = (a, b) => {
+  let number1 = a;
+  let number2 = b;
+  while (number1 !== number2) {
+    if (number1 > number2) {
+      number1 -= number2;
     } else {
-      b -= a;
+      number2 -= number1;
     }
   }
-  return a;
+  return number1;
 };
 
 export default () => {
   const questionsAndAnswersArr = [];
   for (let i = 0; i < GAME_ROUNDS; i += 1) {
-    const question = `${generateNum(LEFT_MAX_RANDOM_VALUE)} ${generateNum(RIGHT_MAX_RANDOM_VALUE)}`;
-    const answer = String(findGcd(question));
+    const leftNumber = generateNum(LEFT_MAX_RANDOM_VALUE);
+    const rightNumber = generateNum(RIGHT_MAX_RANDOM_VALUE);
+    const question = `${leftNumber} ${rightNumber}`;
+    const answer = `${findGcd(leftNumber, rightNumber)}`;
     questionsAndAnswersArr.push([question, answer]);
   }
   gameFlow(gameTask, questionsAndAnswersArr);
