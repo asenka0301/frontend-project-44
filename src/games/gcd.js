@@ -1,17 +1,12 @@
-import { gameFlow, generateNum, GAME_ROUNDS } from '../index.js';
+import { gameFlow, GAME_ROUNDS } from '../index.js';
+import getRandomInRange from '../math.js';
 
-const MAX_RANDOM_VALUE_NUM1 = 20;
-const MAX_RANDOM_VALUE_NUM2 = 20;
-
-const gameTask = 'Find the greatest common divisor of given numbers.';
+const RANGE_MIN_VALUE = 1;
+const RANGE_MAX_VALUE = 20;
 
 const findGcd = (a, b) => {
   let number1 = a;
   let number2 = b;
-
-  if (number2 === 0) {
-    return number1;
-  }
 
   while (number1 !== number2) {
     if (number1 > number2) {
@@ -23,11 +18,13 @@ const findGcd = (a, b) => {
   return number1;
 };
 
+const gameTask = 'Find the greatest common divisor of given numbers.';
+
 export default () => {
   const questionsAndAnswersArr = [];
   for (let i = 0; i < GAME_ROUNDS; i += 1) {
-    const number1 = generateNum(MAX_RANDOM_VALUE_NUM1) + 1;
-    const number2 = generateNum(MAX_RANDOM_VALUE_NUM2);
+    const number1 = getRandomInRange(RANGE_MIN_VALUE, RANGE_MAX_VALUE);
+    const number2 = getRandomInRange(RANGE_MIN_VALUE, RANGE_MAX_VALUE);
     const question = `${number1} ${number2}`;
     const answer = `${findGcd(number1, number2)}`;
     questionsAndAnswersArr.push([question, answer]);

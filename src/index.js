@@ -2,8 +2,6 @@ import readlineSync from 'readline-sync';
 
 export const GAME_ROUNDS = 3;
 
-export const generateNum = (max) => Math.floor(Math.random() * max);
-
 export const gameFlow = (task, gameData) => {
   console.log('Welcome to the Brain Games!');
   const userName = readlineSync.question('My I have your name? ');

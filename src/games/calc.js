@@ -1,10 +1,15 @@
-import { gameFlow, generateNum, GAME_ROUNDS } from '../index.js';
+import { gameFlow, GAME_ROUNDS } from '../index.js';
+import getRandomInRange from '../math.js';
 
-const MAX_RANDOM_VALUE = 10;
+const RANGE_MIN_VALUE = 0;
+const RANGE_MAX_VALUE = 10;
 
 const generateOperator = () => {
   const operators = ['+', '-', '*'];
-  return operators[generateNum(operators.length)];
+  const minOperatorIndex = 0;
+  const maxOperatorIndex = operators.length - 1;
+  const index = getRandomInRange(minOperatorIndex, maxOperatorIndex);
+  return operators[index];
 };
 
 const getCalculationResult = (num1, num2, sign) => {
@@ -25,8 +30,8 @@ const gameTask = 'What is the result of the expression?';
 export default () => {
   const questionsAndAnswersArr = [];
   for (let i = 0; i < GAME_ROUNDS; i += 1) {
-    const operand1 = generateNum(MAX_RANDOM_VALUE);
-    const operand2 = generateNum(MAX_RANDOM_VALUE);
+    const operand1 = getRandomInRange(RANGE_MIN_VALUE, RANGE_MAX_VALUE);
+    const operand2 = getRandomInRange(RANGE_MIN_VALUE, RANGE_MAX_VALUE);
     const operator = generateOperator();
     const question = `${operand1} ${operator} ${operand2}`;
     const answer = String(getCalculationResult(operand1, operand2, operator));

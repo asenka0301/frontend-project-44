@@ -1,8 +1,8 @@
-import { gameFlow, generateNum, GAME_ROUNDS } from '../index.js';
+import { gameFlow, GAME_ROUNDS } from '../index.js';
+import getRandomInRange from '../math.js';
 
-const MAX_RANDOM_VALUE = 40;
-
-const gameTask = 'Answer "yes" if given number is prime. Otherwise answer "no"';
+const RANGE_MIN_VALUE = 2;
+const RANGE_MAX_VALUE = 100;
 
 const isPrime = (num) => {
   if (num < 2) return false;
@@ -14,10 +14,12 @@ const isPrime = (num) => {
   return true;
 };
 
+const gameTask = 'Answer "yes" if given number is prime. Otherwise answer "no"';
+
 export default () => {
   const questionsAndAnswersArr = [];
   for (let i = 0; i < GAME_ROUNDS; i += 1) {
-    const question = 1 + generateNum(MAX_RANDOM_VALUE);
+    const question = getRandomInRange(RANGE_MIN_VALUE, RANGE_MAX_VALUE);
     const answer = isPrime(question) ? 'yes' : 'no';
     questionsAndAnswersArr.push([question, answer]);
   }
